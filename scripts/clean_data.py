@@ -1,32 +1,18 @@
 import pandas as pd
-import numpy as np
+from pathlib import Path
 
-
-# ===============================
-# CONFIGURATION
-# ===============================
-
-INPUT_FILE = "../data/Heart_disease_raw.csv"     # Raw dataset file
-OUTPUT_FILE = "../data/Heart_disease_cleaned.csv"  # Cleaned dataset file
-
-
-# ===============================
-# LOAD DATA
-# ===============================
+BASE_DIR   = Path(__file__).resolve().parent.parent
+INPUT_FILE  = BASE_DIR / "data" / "Heart_disease_raw.csv"
+OUTPUT_FILE = BASE_DIR / "data" / "Heart_disease_cleaned.csv"
 
 def load_data(file_path):
     try:
         df = pd.read_csv(file_path)
-        print("✅ Data loaded successfully.")
+        print(f"Data loaded successfully. Shape: {df.shape}")
         return df
     except Exception as e:
-        print("❌ Error loading file:", e)
+        print("Error loading file:", e)
         return None
-
-
-# ===============================
-# STANDARDIZE COLUMN NAMES
-# ===============================
 
 def standardize_column_names(df):
     df.columns = (
@@ -36,96 +22,127 @@ def standardize_column_names(df):
         .str.replace(" ", "_")
         .str.replace("-", "_")
     )
-    print("✅ Column names standardized.")
+    print("Column names standardized:", list(df.columns))
     return df
-
-
-# ===============================
-# REMOVE DUPLICATES
-# ===============================
 
 def remove_duplicates(df):
     initial_count = df.shape[0]
     df = df.drop_duplicates()
-    final_count = df.shape[0]
-    print(f"✅ Removed {initial_count - final_count} duplicate rows.")
+    removed = initial_count - df.shape[0]
+    print(f"Removed {removed} duplicate rows. Remaining: {df.shape[0]}")
     return df
-
-
-# ===============================
-# HANDLE MISSING VALUES
-# ===============================
 
 def handle_missing_values(df):
+    missing_before = df.isnull().sum().sum()
 
-    # Numerical columns → Fill with median
-    num_cols = df.select_dtypes(include=['int64', 'float64']).columns
+    num_cols = df.select_dtypes(include=["int64", "float64"]).columns
     for col in num_cols:
-        df[col].fillna(df[col].median(), inplace=True)
+        df[col] = df[col].fillna(df[col].median())
 
-    # Categorical columns → Fill with mode
-    cat_cols = df.select_dtypes(include=['object']).columns
+    cat_cols = df.select_dtypes(include=["object"]).columns
     for col in cat_cols:
-        df[col].fillna(df[col].mode()[0], inplace=True)
+        df[col] = df[col].fillna(df[col].mode()[0])
 
-    print("✅ Missing values handled.")
+    missing_after = df.isnull().sum().sum()
+    print(f"Missing values handled. Before: {missing_before} -> After: {missing_after}")
     return df
 
+def handle_bmi_outliers(df):
+    if "bmi" not in df.columns:
+        return df
 
-# ===============================
-# FIX DATA TYPES
-# ===============================
+    q1  = df["bmi"].quantile(0.25)
+    q3  = df["bmi"].quantile(0.75)
+    iqr = q3 - q1
+    lower = q1 - 1.5 * iqr
+    upper = q3 + 1.5 * iqr
+
+    outliers = df[(df["bmi"] < lower) | (df["bmi"] > upper)].shape[0]
+    df["bmi"] = df["bmi"].clip(lower=lower, upper=upper)
+
+    print(f"BMI outliers clipped. {outliers} values adjusted. Range: [{lower:.2f}, {upper:.2f}]")
+    return df
+
+def simplify_diabetic(df):
+    if "diabetic" not in df.columns:
+        return df
+
+    before = df["diabetic"].value_counts().to_dict()
+
+    df["diabetic"] = df["diabetic"].replace({
+        "Yes (during pregnancy)": "Yes",
+        "No, borderline diabetes": "No"
+    })
+
+    after = df["diabetic"].value_counts().to_dict()
+    print("Diabetic column simplified.")
+    print(f"   Before: {before}")
+    print(f"   After : {after}")
+    return df
 
 def fix_data_types(df):
+    if "heartdisease" in df.columns:
+        df["heartdisease"] = df["heartdisease"].astype(str).str.strip()
 
-    # Convert common columns if they exist
-    if 'age' in df.columns:
-        df['age'] = df['age'].astype(int)
+    if "agecategory" in df.columns:
+        df["agecategory"] = df["agecategory"].astype(str).str.strip()
 
-    if 'sex' in df.columns:
-        df['sex'] = df['sex'].astype(str)
+    for col in ["bmi", "physicalhealth", "mentalhealth", "sleeptime"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
 
-    if 'target' in df.columns:
-        df['target'] = df['target'].astype(int)
-
-    print("✅ Data types standardized.")
+    print("Data types fixed.")
     return df
-
-
-# ===============================
-# ENCODE CATEGORICAL VARIABLES
-# ===============================
 
 def encode_categorical(df):
+    binary_cols = [
+        "smoking", "alcoholdrinking", "stroke", "diffwalking",
+        "physicalactivity", "asthma", "kidneydisease", "skincancer"
+    ]
+    for col in binary_cols:
+        if col in df.columns:
+            df[col] = df[col].map({"Yes": 1, "No": 0}).fillna(df[col])
 
-    # Example mappings (modify based on dataset)
-    if 'sex' in df.columns:
-        df['sex'] = df['sex'].map({'Male': 1, 'Female': 0}).fillna(df['sex'])
+    if "sex" in df.columns:
+        df["sex"] = df["sex"].map({"Male": 1, "Female": 0}).fillna(df["sex"])
 
-    if 'smoking' in df.columns:
-        df['smoking'] = df['smoking'].map({'Yes': 1, 'No': 0}).fillna(df['smoking'])
-
-    print("✅ Categorical encoding applied (if applicable).")
+    print("Categorical encoding applied.")
+    print("   Encoded columns:", binary_cols + ["sex"])
     return df
 
-
-# ===============================
-# MAIN CLEANING PIPELINE
-# ===============================
+def print_summary(df):
+    print("\nFinal Dataset Summary")
+    print(f"   Shape        : {df.shape}")
+    print(f"   Nulls        : {df.isnull().sum().sum()}")
+    print(f"   Duplicates   : {df.duplicated().sum()}")
+    print(f"\n   Column dtypes:\n{df.dtypes}")
+    print(f"\n   HeartDisease : {df['heartdisease'].value_counts().to_dict()}")
+    print(f"   Sex          : {df['sex'].value_counts().to_dict()}")
+    print(f"   Diabetic     : {df['diabetic'].value_counts().to_dict()}")
+    print(f"   BMI range    : {df['bmi'].min():.2f} - {df['bmi'].max():.2f}")
 
 def main():
+    print("=" * 50)
+    print("Heart Disease Data Cleaning Pipeline")
+    print("=" * 50)
+
     df = load_data(INPUT_FILE)
 
     if df is not None:
         df = standardize_column_names(df)
         df = remove_duplicates(df)
         df = handle_missing_values(df)
+        df = handle_bmi_outliers(df)
+        df = simplify_diabetic(df)
         df = fix_data_types(df)
         df = encode_categorical(df)
 
+        print_summary(df)
+
         df.to_csv(OUTPUT_FILE, index=False)
-        print(f"🎉 Cleaned data saved as '{OUTPUT_FILE}'")
-        print("Final Dataset Shape:", df.shape)
+        print(f"\nCleaned data saved to: {OUTPUT_FILE}")
+
+    print("=" * 50)
 
 
 if __name__ == "__main__":
