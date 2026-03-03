@@ -1,19 +1,27 @@
+import os
+from pathlib import Path
 import pandas as pd
 import psycopg2
 from psycopg2 import sql
 from psycopg2.extras import execute_batch
 import time
+from dotenv import load_dotenv
+
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+load_dotenv(ROOT_DIR / ".env")
+import dotenv
 
 
 # ===============================
 # DATABASE CONFIGURATION
 # ===============================
 
-DB_NAME = "heart_disease_db"  # Database name
-DB_USER = "env.PGUSER"  # Use environment variable for security
-DB_PASSWORD = "env.PGPASSWORD"  # Use environment variable for security
-DB_HOST = "localhost"
-DB_PORT = "5432"
+DB_NAME = os.getenv("PGDATABASE", "heart_disease_db")
+DB_USER = os.getenv("PGUSER")
+DB_PASSWORD = os.getenv("PGPASSWORD")
+DB_HOST = os.getenv("PGHOST", "localhost")
+DB_PORT = os.getenv("PGPORT", "5432")
 
 TABLE_NAME = "heart_disease"
 
@@ -99,6 +107,11 @@ def insert_data(conn, df):
 def main():
 
     try:
+        if not DB_PASSWORD:
+            raise ValueError(
+                "PGPASSWORD is not set. Add it to .env or export it in your shell."
+            )
+
         print("🔹 Reading cleaned dataset...")
         df = pd.read_csv(DATA_FILE)
 
