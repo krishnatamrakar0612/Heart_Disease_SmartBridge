@@ -1,0 +1,974 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20261.26.0226.1626                               -->
+<workbook original-version='18.1' source-build='2026.1.0 (20261.26.0226.1626)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Heart_disease_raw' inline='true' name='federated.101fpiv0tb5ah714mlv3x1vsr2db' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Heart_disease_raw' name='textscan.0abpfqs1912lb0137n7600s4wgce'>
+            <connection class='textscan' directory='E:/Coding/Heart Disease analysis/data' filename='Heart_disease_raw.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0abpfqs1912lb0137n7600s4wgce' name='Heart_disease_raw.csv' table='[Heart_disease_raw#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='HeartDisease' ordinal='0' />
+            <column datatype='real' name='BMI' ordinal='1' />
+            <column datatype='string' name='Smoking' ordinal='2' />
+            <column datatype='string' name='AlcoholDrinking' ordinal='3' />
+            <column datatype='string' name='Stroke' ordinal='4' />
+            <column datatype='integer' name='PhysicalHealth' ordinal='5' />
+            <column datatype='integer' name='MentalHealth' ordinal='6' />
+            <column datatype='string' name='DiffWalking' ordinal='7' />
+            <column datatype='string' name='Sex' ordinal='8' />
+            <column datatype='string' name='AgeCategory' ordinal='9' />
+            <column datatype='string' name='Race' ordinal='10' />
+            <column datatype='string' name='Diabetic' ordinal='11' />
+            <column datatype='string' name='PhysicalActivity' ordinal='12' />
+            <column datatype='string' name='GenHealth' ordinal='13' />
+            <column datatype='integer' name='SleepTime' ordinal='14' />
+            <column datatype='string' name='Asthma' ordinal='15' />
+            <column datatype='string' name='KidneyDisease' ordinal='16' />
+            <column datatype='string' name='SkinCancer' ordinal='17' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HeartDisease</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[HeartDisease]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>HeartDisease</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BMI</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[BMI]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>BMI</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Smoking</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Smoking]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Smoking</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AlcoholDrinking</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AlcoholDrinking]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>AlcoholDrinking</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Stroke</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Stroke]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Stroke</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PhysicalHealth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PhysicalHealth]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>PhysicalHealth</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MentalHealth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MentalHealth]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>MentalHealth</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DiffWalking</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DiffWalking]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>DiffWalking</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sex</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sex]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Sex</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AgeCategory</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AgeCategory]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>AgeCategory</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Race</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Race]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Race</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Diabetic</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Diabetic]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Diabetic</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PhysicalActivity</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[PhysicalActivity]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>PhysicalActivity</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GenHealth</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[GenHealth]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>GenHealth</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SleepTime</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SleepTime]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>SleepTime</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asthma</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Asthma]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>Asthma</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>KidneyDisease</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[KidneyDisease]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>KidneyDisease</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SkinCancer</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SkinCancer]</local-name>
+            <parent-name>[Heart_disease_raw.csv]</parent-name>
+            <remote-alias>SkinCancer</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Age Category' datatype='string' name='[AgeCategory]' role='dimension' type='nominal' />
+      <column caption='Alcohol Drinking' datatype='string' name='[AlcoholDrinking]' role='dimension' type='nominal' />
+      <column caption='diabetic' datatype='string' name='[Calculation_1587465692196878]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Diabetic] = &quot;No&quot; THEN NULL&#13;&#10;ELSEIF [Diabetic] = &quot;No, borderline diabetes&quot; THEN NULL&#13;&#10;ELSE [Diabetic]&#13;&#10;END' />
+      </column>
+      <column aggregation='Sum' caption='Age sort' datatype='integer' name='[Calculation_1587465697656850]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='CASE [AgeCategory]&#13;&#10;&#13;&#10;WHEN &quot;18-24&quot; THEN 1&#13;&#10;WHEN &quot;25-29&quot; THEN 2&#13;&#10;WHEN &quot;30-34&quot; THEN 3&#13;&#10;WHEN &quot;35-39&quot; THEN 4&#13;&#10;WHEN &quot;40-44&quot; THEN 5&#13;&#10;WHEN &quot;45-49&quot; THEN 6&#13;&#10;WHEN &quot;50-54&quot; THEN 7&#13;&#10;WHEN &quot;55-59&quot; THEN 8&#13;&#10;WHEN &quot;60-64&quot; THEN 9&#13;&#10;WHEN &quot;65-69&quot; THEN 10&#13;&#10;WHEN &quot;70-74&quot; THEN 11&#13;&#10;WHEN &quot;75-79&quot; THEN 12&#13;&#10;WHEN &quot;80 or older&quot; THEN 13&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column caption='Diff Walking' datatype='string' name='[DiffWalking]' role='dimension' type='nominal' />
+      <column caption='Gen Health' datatype='string' name='[GenHealth]' role='dimension' type='nominal' />
+      <column caption='Heart Disease' datatype='string' name='[HeartDisease]' role='dimension' type='nominal' />
+      <column caption='Kidney Disease' datatype='string' name='[KidneyDisease]' role='dimension' type='nominal' />
+      <column caption='Mental Health' datatype='integer' name='[MentalHealth]' role='measure' type='quantitative' />
+      <column caption='Physical Activity' datatype='string' name='[PhysicalActivity]' role='dimension' type='nominal' />
+      <column caption='Physical Health' datatype='integer' name='[PhysicalHealth]' role='measure' type='quantitative' />
+      <column caption='Skin Cancer' datatype='string' name='[SkinCancer]' role='dimension' type='nominal' />
+      <column caption='Sleep Time' datatype='integer' name='[SleepTime]' role='measure' type='quantitative' />
+      <column caption='Heart_disease_raw.csv' datatype='table' name='[__tableau_internal_object_id__].[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/nikpo/AppData/Local/Temp/TableauTemp/#TableauTemp_0swmv0t1esudni1cgs28g19hnqvy.hyper' default-settings='yes' schema='Extract' sslmode='' update-time='03/06/2026 08:26:46 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='Heart_disease_raw' increment-value='%null%' refresh-type='create' rows-inserted='4500' timestamp-start='2026-03-06 08:26:46.511' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>HeartDisease</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[HeartDisease]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>HeartDisease</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BMI</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[BMI]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>BMI</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>943</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Smoking</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Smoking]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Smoking</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>AlcoholDrinking</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[AlcoholDrinking]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>AlcoholDrinking</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Stroke</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Stroke]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Stroke</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PhysicalHealth</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[PhysicalHealth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PhysicalHealth</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MentalHealth</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[MentalHealth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MentalHealth</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>28</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>DiffWalking</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[DiffWalking]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>DiffWalking</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sex</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sex]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sex</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>AgeCategory</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[AgeCategory]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>AgeCategory</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>13</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Race</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Race]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Race</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Diabetic</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Diabetic]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Diabetic</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PhysicalActivity</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[PhysicalActivity]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PhysicalActivity</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GenHealth</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[GenHealth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GenHealth</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SleepTime</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[SleepTime]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>SleepTime</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Asthma</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Asthma]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Asthma</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>KidneyDisease</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[KidneyDisease]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>KidneyDisease</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SkinCancer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[SkinCancer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>SkinCancer</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Heart_disease_raw.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='HeartDisease' />
+        <field-sort-custom-order field='BMI' />
+        <field-sort-custom-order field='Smoking' />
+        <field-sort-custom-order field='AlcoholDrinking' />
+        <field-sort-custom-order field='Stroke' />
+        <field-sort-custom-order field='PhysicalHealth' />
+        <field-sort-custom-order field='MentalHealth' />
+        <field-sort-custom-order field='DiffWalking' />
+        <field-sort-custom-order field='Sex' />
+        <field-sort-custom-order field='AgeCategory' />
+        <field-sort-custom-order field='Calculation_1587465697656850' />
+        <field-sort-custom-order field='Race' />
+        <field-sort-custom-order field='Diabetic' />
+        <field-sort-custom-order field='Calculation_1587465692196878' />
+        <field-sort-custom-order field='PhysicalActivity' />
+        <field-sort-custom-order field='GenHealth' />
+        <field-sort-custom-order field='SleepTime' />
+        <field-sort-custom-order field='Asthma' />
+        <field-sort-custom-order field='KidneyDisease' />
+        <field-sort-custom-order field='SkinCancer' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='Heart_disease_raw.csv' id='Heart_disease_raw.csv_3AF27457548D47618C3B766B8D7002D4'>
+            <properties context=''>
+              <relation connection='textscan.0abpfqs1912lb0137n7600s4wgce' name='Heart_disease_raw.csv' table='[Heart_disease_raw#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='HeartDisease' ordinal='0' />
+                  <column datatype='real' name='BMI' ordinal='1' />
+                  <column datatype='string' name='Smoking' ordinal='2' />
+                  <column datatype='string' name='AlcoholDrinking' ordinal='3' />
+                  <column datatype='string' name='Stroke' ordinal='4' />
+                  <column datatype='integer' name='PhysicalHealth' ordinal='5' />
+                  <column datatype='integer' name='MentalHealth' ordinal='6' />
+                  <column datatype='string' name='DiffWalking' ordinal='7' />
+                  <column datatype='string' name='Sex' ordinal='8' />
+                  <column datatype='string' name='AgeCategory' ordinal='9' />
+                  <column datatype='string' name='Race' ordinal='10' />
+                  <column datatype='string' name='Diabetic' ordinal='11' />
+                  <column datatype='string' name='PhysicalActivity' ordinal='12' />
+                  <column datatype='string' name='GenHealth' ordinal='13' />
+                  <column datatype='integer' name='SleepTime' ordinal='14' />
+                  <column datatype='string' name='Asthma' ordinal='15' />
+                  <column datatype='string' name='KidneyDisease' ordinal='16' />
+                  <column datatype='string' name='SkinCancer' ordinal='17' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontname='Consolas,Courier New,monospace' fontsize='16'>Age vs BMI vs Diabetic</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Heart_disease_raw' name='federated.101fpiv0tb5ah714mlv3x1vsr2db' />
+          </datasources>
+          <datasource-dependencies datasource='federated.101fpiv0tb5ah714mlv3x1vsr2db'>
+            <column caption='Age Category' datatype='string' name='[AgeCategory]' role='dimension' type='nominal' />
+            <column datatype='real' name='[BMI]' role='measure' type='quantitative' />
+            <column caption='diabetic' datatype='string' name='[Calculation_1587465692196878]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Diabetic] = &quot;No&quot; THEN NULL&#13;&#10;ELSEIF [Diabetic] = &quot;No, borderline diabetes&quot; THEN NULL&#13;&#10;ELSE [Diabetic]&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Diabetic]' role='dimension' type='nominal' />
+            <column caption='Heart Disease' datatype='string' name='[HeartDisease]' role='dimension' type='nominal' />
+            <column-instance column='[HeartDisease]' derivation='Attribute' name='[attr:HeartDisease:nk]' pivot='key' type='nominal' />
+            <column-instance column='[BMI]' derivation='Avg' name='[avg:BMI:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AgeCategory]' derivation='None' name='[none:AgeCategory:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1587465692196878]' derivation='None' name='[none:Calculation_1587465692196878:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Calculation_1587465692196878:nk]' member='&quot;Yes&quot;' />
+              <groupfilter function='member' level='[none:Calculation_1587465692196878:nk]' member='&quot;Yes (during pregnancy)&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[avg:BMI:qk]' palette='blue_teal_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[attr:HeartDisease:nk]' />
+              <color column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[avg:BMI:qk]' />
+              <text column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:AgeCategory:nk]' />
+              <text column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]' />
+              <lod column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:AgeCategory:nk]' />
+              <lod column='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{41EFF8A8-455A-4AFE-ABB6-E7BDAAAA1CBC}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.101fpiv0tb5ah714mlv3x1vsr2db].[avg:BMI:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[avg:BMI:qk]</field>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:AgeCategory:nk]</field>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692012557:qk]</field>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465692196878:nk]</field>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Calculation_1587465697656850:ok]</field>
+            <field>[federated.101fpiv0tb5ah714mlv3x1vsr2db].[none:Diabetic:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{14F3D8CD-1B5E-4241-94E5-9A90A8D14C64}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
