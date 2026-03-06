@@ -77,7 +77,7 @@
 ## Q3 — Diabetic vs Stroke
 
 **Tableau Chart:** Bubble Chart (Circle Marks)  
-**Shelf config:** Columns → `Diabetic` | Rows → `SUM(Stroke)` | Marks → Circle | Size → `SUM(Stroke)` | Color → `HeartDisease`
+**Shelf config:** Columns → `Diabetic` `Heartdisease` | Rows → `SUM(Stroke)` | Marks → Circle | Size → `SUM(Stroke)` | Color → `HeartDisease`
 
 **Purpose:** Examine how diabetes status influences stroke occurrence, and whether heart disease compounds that risk. Relevant to Anita's personal risk profile.
 
@@ -109,7 +109,7 @@
 ## Q5 — Stroke vs Other Diseases
 
 **Tableau Chart:** Clustered Bar Chart  
-**Shelf config:** Columns → `Condition` | Rows → `SUM(Stroke)` | Color → `Has Condition`
+**Shelf config:** Columns → `Condition` | Rows → `COUNT(Stroke)`
 
 **Purpose:** Compare how comorbid conditions (asthma, kidney disease, skin cancer) relate to stroke occurrence. Helps identify compounding risk factors beyond cardiac indicators.
 
@@ -168,7 +168,7 @@
 ## Q9 — Age and BMI vs Diabetic
 
 **Tableau Chart:** Treemap  
-**Shelf config:** Marks → Treemap | Size → `COUNT(*)` | Color → `AVG(BMI)` | Label → `AgeCategory` + `Diabetic`
+**Shelf config:** Marks → Treemap | Size → `ATTR(Heartdisease)` | Color → `AVG(BMI)` | Label → `AgeCategory` + `Diabetic`
 
 **Purpose:** Visualize how age and BMI jointly relate to diabetes status. Larger treemap tiles indicate more patients in that age+BMI+diabetic combination. Color intensity reflects average BMI level.
 

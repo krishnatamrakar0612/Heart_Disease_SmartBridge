@@ -143,27 +143,35 @@ ORDER BY hd_rate_pct DESC;
 
 
 -- [Q5] STROKE VS OTHER DISEASES | Chart: Clustered Bar
-SELECT 'Asthma'         AS condition,
-       CASE WHEN asthma = 1 THEN 'Yes' ELSE 'No' END                     AS has_condition,
-       SUM(stroke)                                                        AS stroke_count,
-       COUNT(*)                                                           AS total
-FROM heart_disease GROUP BY asthma
+SELECT 
+    'Asthma'         AS condition,
+    CASE WHEN asthma = 1 THEN 'Yes' ELSE 'No' END    AS has_condition,
+    CASE WHEN stroke = 1 THEN 'Stroke' ELSE 'No Stroke' END AS stroke_status,
+    COUNT(*)                                          AS count
+FROM heart_disease 
+GROUP BY asthma, stroke
 
 UNION ALL
 
-SELECT 'Kidney Disease',
-       CASE WHEN kidneydisease = 1 THEN 'Yes' ELSE 'No' END,
-       SUM(stroke), COUNT(*)
-FROM heart_disease GROUP BY kidneydisease
+SELECT 
+    'Kidney Disease' AS condition,
+    CASE WHEN kidneydisease = 1 THEN 'Yes' ELSE 'No' END AS has_condition,
+    CASE WHEN stroke = 1 THEN 'Stroke' ELSE 'No Stroke' END AS stroke_status,
+    COUNT(*)                                          AS count
+FROM heart_disease 
+GROUP BY kidneydisease, stroke
 
 UNION ALL
 
-SELECT 'Skin Cancer',
-       CASE WHEN skincancer = 1 THEN 'Yes' ELSE 'No' END,
-       SUM(stroke), COUNT(*)
-FROM heart_disease GROUP BY skincancer
+SELECT 
+    'Skin Cancer'    AS condition,
+    CASE WHEN skincancer = 1 THEN 'Yes' ELSE 'No' END AS has_condition,
+    CASE WHEN stroke = 1 THEN 'Stroke' ELSE 'No Stroke' END AS stroke_status,
+    COUNT(*)                                          AS count
+FROM heart_disease 
+GROUP BY skincancer, stroke
 
-ORDER BY condition, has_condition;
+ORDER BY condition, has_condition, stroke_status;
 
 
 -- [Q6] RACE VS HEART DISEASE | Chart: Pie Chart

@@ -69,13 +69,14 @@ def simplify_diabetic(df):
 
     before = df["diabetic"].value_counts().to_dict()
 
+    # Merge gestational diabetes into 'Yes'
+    # Keep 'No, borderline diabetes' as a separate 3rd category for richer analysis
     df["diabetic"] = df["diabetic"].replace({
-        "Yes (during pregnancy)": "Yes",
-        "No, borderline diabetes": "No"
+        "Yes (during pregnancy)": "Yes"
     })
 
     after = df["diabetic"].value_counts().to_dict()
-    print("Diabetic column simplified.")
+    print(f"✅ Diabetic column simplified. (3 categories retained)")
     print(f"   Before: {before}")
     print(f"   After : {after}")
     return df
