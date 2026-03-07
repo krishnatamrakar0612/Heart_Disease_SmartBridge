@@ -2,196 +2,239 @@
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Heart Disease Analysis</title>
+	<title>Heart Disease Analysis</title>
 
-<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="header fixed-top">
-<div class="container d-flex justify-content-between align-items-center">
+	<!-- NAVBAR -->
+	<header id="header" class="header fixed-top d-flex align-items-center">
+		<div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-<h2>Heart Disease Analysis</h2>
+			<a href="#home" class="logo d-flex align-items-center">
+				<img src="{{ url_for('static', filename='img/logo.png') }}" alt="Heart Disease Analysis logo">
+				<span class="sitename">Heart Disease Analysis</span>
+			</a>
 
-<nav>
-<ul class="nav">
-<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-</ul>
-</nav>
+			<nav id="navmenu" class="navmenu">
+				<ul>
+					<li><a href="#home" class="active">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#dashboard">Dashboard</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
 
-</div>
-</header>
+		</div>
+	</header>
 
+	<!-- HERO -->
+	<section id="home" class="hero section">
+		<div class="hero-bg"></div>
+		<div class="container">
+			<div class="row gy-4 align-items-center">
+				<div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+					<h1>Heart Disease Prediction and Analysis</h1>
+					<p>
+						Explore how lifestyle and clinical indicators influence heart disease risk with interactive
+						dashboards, guided storytelling, and clean visual summaries.
+					</p>
+					<div class="d-flex gap-3 flex-wrap">
+						<a href="#dashboard" class="btn-get-started">View Dashboard</a>
+						<a href="{{ url_for('static', filename='img/services.jpg') }}" class="btn-watch-video" target="_blank" rel="noopener noreferrer">
+							<i class="bi bi-play-circle"></i>
+							<span>Project Snapshot</span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-6 order-1 order-lg-2 hero-img">
+					<img src="{{ url_for('static', filename='img/hero-img.png') }}" class="img-fluid" alt="Heart analysis illustration">
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="container text-center">
+	<!-- ABOUT -->
+	<section id="about" class="about section">
+		<div class="container">
+			<div class="section-title">
+				<h2>About The Project</h2>
+				<p>From raw records to decision-ready health intelligence</p>
+			</div>
 
-<h1>Heart Disease Prediction & Analysis</h1>
+			<div class="row gy-4 align-items-center">
+				<div class="col-lg-6">
+					<img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid about-img" alt="Data analysis workspace">
+				</div>
+				<div class="col-lg-6">
+					<p>
+						Heart disease remains one of the leading global health risks. This project evaluates factors such as
+						BMI, age, smoking behavior, diabetes, and physical activity to understand high-risk patterns.
+					</p>
+					<p>
+						The workflow combines data cleaning, SQL analysis, and Tableau visual storytelling in a Flask-based
+						interface designed for exploration and learning.
+					</p>
 
-<p>
-This project analyzes heart disease patterns using data visualization
-and interactive dashboards created with Tableau.
-</p>
+					<div class="feature-grid">
+						<article class="feature-card">
+							<i class="bi bi-activity"></i>
+							<h3>Risk Factors</h3>
+							<p>Track interactions between lifestyle variables and disease outcomes.</p>
+						</article>
+						<article class="feature-card">
+							<i class="bi bi-bar-chart-line"></i>
+							<h3>Visual Analytics</h3>
+							<p>Interpret trends quickly through dashboards and story points.</p>
+						</article>
+						<article class="feature-card">
+							<i class="bi bi-database-check"></i>
+							<h3>Clean Data</h3>
+							<p>Structured processing from raw CSV to reliable analysis tables.</p>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<a href="#dashboard" class="btn btn-primary">
-View Dashboard
-</a>
+	<!-- DASHBOARD -->
+	<section id="dashboard" class="dashboard section">
+		<div class="container">
 
-</div>
-</section>
+			<div class="section-title">
+				<h2>Dashboards</h2>
+				<p>Interactive Tableau story and dashboard views</p>
+			</div>
 
+			<div class="viz-block">
+				<h3>Heart Disease Story</h3>
+				<div class="tableauPlaceholder" id="vizStory" style="position: relative">
+					<noscript>
+						<a href="#">
+							<img alt="Story" src="https://public.tableau.com/static/images/He/Heart_Disease_Story_17728677998830/Story1/1_rss.png" style="border:none" />
+						</a>
+					</noscript>
+					<object class="tableauViz" style="display:none;">
+						<param name="host_url" value="https://public.tableau.com/" />
+						<param name="name" value="Heart_Disease_Story_17728677998830/Story1" />
+						<param name="tabs" value="no" />
+						<param name="toolbar" value="yes" />
+					</object>
+				</div>
+			</div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+			<div class="viz-block">
+				<h3>Heart Disease Dashboard</h3>
+				<div class="tableauPlaceholder" id="vizDashboard" style="position: relative">
+					<noscript>
+						<a href="#">
+							<img alt="Dashboard 1" src="https://public.tableau.com/static/images/Bo/Book1_17728826945320/Dashboard1/1_rss.png" style="border: none" />
+						</a>
+					</noscript>
+					<object class="tableauViz" style="display:none;">
+						<param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+						<param name="embed_code_version" value="3" />
+						<param name="site_root" value="" />
+						<param name="name" value="Book1_17728826945320/Dashboard1" />
+						<param name="tabs" value="no" />
+						<param name="toolbar" value="yes" />
+						<param name="static_image" value="https://public.tableau.com/static/images/Bo/Book1_17728826945320/Dashboard1/1.png" />
+						<param name="animate_transition" value="yes" />
+						<param name="display_static_image" value="yes" />
+						<param name="display_spinner" value="yes" />
+						<param name="display_overlay" value="yes" />
+						<param name="display_count" value="yes" />
+						<param name="language" value="en-US" />
+						<param name="filter" value="publish=yes" />
+					</object>
+				</div>
+			</div>
 
-<div class="container">
+		</div>
+	</section>
 
-<h2>About the Project</h2>
+	<!-- CONTACT -->
+	<section id="contact" class="contact section">
+		<div class="container">
 
-<p>
-Heart disease is one of the leading causes of death worldwide.
-This project analyzes different health factors such as BMI,
-smoking habits, physical activity, diabetes, and age to
-understand their impact on heart disease risk.
-</p>
+			<div class="section-title">
+				<h2>Contact</h2>
+				<p>Collaborate, ask questions, or request dataset insights</p>
+			</div>
 
-<p>
-Using <b>Tableau dashboards</b> and a <b>Flask web application</b>,
-we present interactive visualizations that allow users to
-explore insights from the dataset.
-</p>
+			<div class="row gy-4">
+				<div class="col-lg-4">
+					<div class="contact-info-card">
+						<div class="icon"><i class="bi bi-envelope"></i></div>
+						<h3>Email</h3>
+						<p>example@email.com</p>
+					</div>
+				</div>
 
-</div>
+				<div class="col-lg-4">
+					<div class="contact-info-card">
+						<div class="icon"><i class="bi bi-building"></i></div>
+						<h3>Institution</h3>
+						<p>LNCT</p>
+					</div>
+				</div>
 
-</section>
+				<div class="col-lg-4">
+					<div class="contact-info-card">
+						<div class="icon"><i class="bi bi-journal-bookmark"></i></div>
+						<h3>Course</h3>
+						<p>Data Analytics</p>
+					</div>
+				</div>
+			</div>
 
+		</div>
+	</section>
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="section">
+	<!-- FOOTER -->
+	<footer class="footer text-center">
+		<div class="container">
+			<p>© 2026 Heart Disease Analysis Project</p>
+		</div>
+	</footer>
 
-<div class="container">
+	<script>
+		(function initTableauEmbeds() {
+			const storyContainer = document.getElementById('vizStory');
+			const dashboardContainer = document.getElementById('vizDashboard');
+			const storyObject = storyContainer ? storyContainer.getElementsByTagName('object')[0] : null;
+			const dashboardObject = dashboardContainer ? dashboardContainer.getElementsByTagName('object')[0] : null;
 
-<h2 class="text-center">Heart Disease Story</h2>
+			if (!storyObject || !dashboardObject) return;
 
-<!-- STORY -->
-<div class='tableauPlaceholder' id='vizStory' style='position: relative'>
+			const storyWidth = window.innerWidth < 992 ? '100%' : '920px';
+			const dashboardWidth = window.innerWidth < 992 ? '100%' : '680px';
+			storyContainer.style.width = storyWidth;
+			dashboardContainer.style.width = dashboardWidth;
+			storyContainer.style.maxWidth = '100%';
+			dashboardContainer.style.maxWidth = '100%';
+			storyContainer.style.margin = '0 auto';
+			dashboardContainer.style.margin = '0 auto';
 
-<noscript>
-<a href='#'>
-<img alt='Story'
-src='https://public.tableau.com/static/images/He/Heart_Disease_Story_17728677998830/Story1/1_rss.png'
-style='border:none' />
-</a>
-</noscript>
+			storyObject.style.width = '100%';
+			dashboardObject.style.width = '100%';
 
-<object class='tableauViz' style='display:none;'>
+			storyObject.style.height = window.innerWidth < 768 ? '560px' : '760px';
+			dashboardObject.style.height = window.innerWidth < 768 ? '860px' : '760px';
 
-<param name='host_url' value='https://public.tableau.com/' />
-<param name='name' value='Heart_Disease_Story_17728677998830/Story1' />
-<param name='tabs' value='no' />
-<param name='toolbar' value='yes' />
-
-</object>
-</div>
-
-
-<br><br>
-
-
-<h2 class="text-center">Heart Disease Dashboard</h2>
-
-<!-- DASHBOARD -->
-<div class='tableauPlaceholder' id='vizDashboard' style='position: relative'>
-
-<noscript>
-<a href='#'>
-<img alt='Dashboard'
-src='https://public.tableau.com/static/images/Da/Dashboard2_17728696906200/Dashboard2/1_rss.png'
-style='border:none' />
-</a>
-</noscript>
-
-<object class='tableauViz' style='display:none;'>
-
-<param name='host_url' value='https://public.tableau.com/' />
-<param name='name' value='Dashboard2_17728696906200/Dashboard2' />
-<param name='tabs' value='no' />
-<param name='toolbar' value='yes' />
-
-</object>
-</div>
-
-
-<script>
-
-var divElement1 = document.getElementById('vizStory');
-var vizElement1 = divElement1.getElementsByTagName('object')[0];
-vizElement1.style.width='100%';
-vizElement1.style.height='700px';
-
-var divElement2 = document.getElementById('vizDashboard');
-var vizElement2 = divElement2.getElementsByTagName('object')[0];
-vizElement2.style.width='100%';
-vizElement2.style.height='700px';
-
-var scriptElement = document.createElement('script');
-scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-
-vizElement1.parentNode.insertBefore(scriptElement, vizElement1);
-
-</script>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-
-<div class="container">
-
-<h2>Contact</h2>
-
-<p>
-If you have any questions regarding this project,
-feel free to reach out.
-</p>
-
-<ul>
-<li>Email: example@email.com</li>
-<li>Institution: LNCT</li>
-<li>Course: Data Analytics</li>
-</ul>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer class="footer text-center">
-
-<div class="container">
-
-<p>
-© 2026 Heart Disease Analysis Project
-</p>
-
-</div>
-
-</footer>
-
+			const scriptElement = document.createElement('script');
+			scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+			storyObject.parentNode.insertBefore(scriptElement, storyObject);
+		})();
+	</script>
 </body>
 </html>
